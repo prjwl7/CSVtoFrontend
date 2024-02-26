@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views</title>
+    <style>
+        .lists{
+            display: flex;
+            gap: 3%;
+        }
+    </style>
+</head>
+<body>
+    <h1>List</h1>
+    <div class="lists">
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Class</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>ZipCode</th>
+                <th>Hobby1</th>
+                <th>Hobby2</th>
+                <th>Hobby3</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.class_name }}</td>
+                <td>{{ student.address.address_street }}</td>
+                <td>{{ student.address.address_city }}</td>
+                <td>{{ student.address.address_state }}</td>
+                <td>{{ student.address.address_zipcode }}</td>
+                <td>{{ student.hobby.hobby1 }}</td>
+                <td>{{ student.hobby.hobby2 }}</td>
+                <td>{{ student.hobby.hobby3 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

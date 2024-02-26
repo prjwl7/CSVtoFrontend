@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="./home.css"> -->
+    <!-- <link rel="stylesheet" href="{static '/home.css'}" type="text/css"> -->
+    <style>
+        body{
+             background-color: #1c1c1c;
+             color: white;
+        }
+
+        .upload_div{
+            height: 50%;
+            width: 50%;
+            position: absolute;
+            top: 30%;
+            left: 20%;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+        .upload_form{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10%;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+        <script>
+        function redirectToHomePage() {
+            window.location.href = 'screen/';
+            console.log("Heelow");
+        }
+    </script>
+</head>
+<body>
+    <div class="upload_div">
+        <form class="upload_form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+           {{form.as_p}}
+            <button type="submit" class="submit_button">SUBMIT</button>
+        </form>
+    </div>
+</body>
+</html>

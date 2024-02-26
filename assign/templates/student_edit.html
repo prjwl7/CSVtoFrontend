@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Edit Page</title>
+    <style>
+        .update_form_home2{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 10%;
+            position: absolute;
+            left: 30%;
+        }
+        input{
+            width: 50%;
+        }
+        label{
+            margin-top: 2%;
+        }
+    </style>
+</head>
+<body>
+   <h1>Edit Student</h1>
+
+    <form action="{% url 'student_update' student.pk %}" method="post" class="update_form_home2">
+        {% csrf_token %}
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="{{student.name}}">
+        <label for="age">Age</label>
+        <input type="text" name="age" id="age" value="{{student.age}}">
+        <label for="class">Class_name</label>
+        <input type="text" name="class" id="class" value="{{student.class_name}}">
+        <label for="street">Street</label>
+        <input type="text" name="street" id="street" value="{{address.address_street}}">
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" value="{{address.address_city}}">
+        <label for="state">State</label>
+        <input type="text" name="state" id="state" value="{{address.address_state}}">
+        <label for="zipcode">Zipcode</label>
+        <input type="text" name="zipcode" id="zipcode" value="{{address.address_zipcode}}">
+        <label for="hobby1">Hobby1</label>
+        <input type="text" name="hobby1" id="hobby1" value="{{Hobby.hobby1}}">
+        <label for="hobby2">Hobby2</label>
+        <input type="text" name="hobby2" id="hobby2" value="{{Hobby.hobby2}}"> 
+        <label for="hobby3">Hobby3</label>
+        <input type="text" name="hobby3" id="hobby3" value="{{Hobby.hobby3}}">
+        <input type="submit" value="Update">
+    </form>
+
+</body>
+</html>
